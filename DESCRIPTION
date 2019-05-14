@@ -1,0 +1,32 @@
+Package: bdutilities
+Title: Reusable Supporting Functions Across the bdverse.
+Version: 0.0.1
+License: GPL-3
+Date: 2019-05-14
+Authors@R: c(
+    person(
+        "Thiloshon", "Nagarajah",
+        email = "thiloshon@gmail.com",
+        role = c("aut","cre")),
+    person(
+        "Tomer", "Gueta", 
+        email = "tomer.gu@gmail.com",
+        role = c("aut"),
+        comment = c(ORCID = '0000-0003-1557-8596'))
+Maintainer: Thiloshon Nagarajah <thiloshon@gmail.com>
+URL: https://github.com/bd-R/bdutilities, https://bd-r.github.io/The-bdverse/index.html
+BugReports: https://github.com/bd-R/bdutilities/issues
+Imports: shiny, shinydashboard, shinyjs, leaflet, DT, data.table, rgbif, spocc, finch, bdDwC, bdchecks
+Depends: R (>= 2.10)
+Suggests: 
+    testthat,
+    roxygen2,
+    covr,
+    assertive,
+    shinytest
+LazyData: true
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+
+
