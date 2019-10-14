@@ -17,7 +17,8 @@ Authors@R: c(
 Maintainer: Thiloshon Nagarajah <thiloshon@gmail.com>
 URL: https://github.com/bd-R/bdutilities, https://bd-r.github.io/The-bdverse/index.html
 BugReports: https://github.com/bd-R/bdutilities/issues
-Imports: shiny, shinydashboard, shinyjs, leaflet, DT, data.table, rgbif, spocc, finch, bdDwC, bdchecks
+Imports: shiny, shinydashboard, shinyjs, leaflet, DT, data.table, rgbif, spocc, finch
+Remotes: bd-R/bdDwC, bd-R/bdchecks
 Depends: R (>= 2.10)
 Suggests: 
     testthat,
