@@ -1,9 +1,9 @@
 Package: bdutilities
 Title: Reusable Supporting Functions Across the bdverse
 Description: Reusable Supporting Functions Across the bdverse.
-Version: 0.0.2
+Version: 0.0.3
 License: GPL-3
-Date: 2019-12-14
+Date: 2020-01-01
 Authors@R: c(
     person(
         "Thiloshon", "Nagarajah",
