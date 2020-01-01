@@ -9,19 +9,22 @@ summarizeDataframe <- function(data) {
         return(data)
     }
     temp_data <- as.data.frame(data)
-    cols <- which(tolower(names(data)) %in% c(
-        "scientificname",
-        "taxonrank",
-        "eventdate",
-        "country",
-        "decimallatitude",
-        "decimallongitude",
-        "latitude",
-        "longitute"
-    ))
+    cols <- which(
+        tolower(names(data)) %in% c(
+            "scientificname",
+            "taxonrank",
+            "eventdate",
+            "country",
+            "decimallatitude",
+            "decimallongitude",
+            "latitude",
+            "longitute"
+        )
+    )
     
-    cols <- c(cols, setdiff(1:length(data), cols)); 
-    temp_data <- data[, cols] 
+    cols <- c(cols, setdiff(1:length(data), cols))
+    
+    temp_data <- data[, cols]
     hiding_cols <- c()
     temp_data[] <- lapply(temp_data, as.character)
     
@@ -52,10 +55,26 @@ summarizeDataframe <- function(data) {
 #' @param reactiveObject shiny reactive object or, object
 #'
 #' @export
-return_core <- function(reactiveObject){
-    if(class(reactiveObject) == "reactive" || class(reactiveObject) == "reactiveExpr"){
+return_core <- function(reactiveObject) {
+    if (class(reactiveObject) == "reactive" ||
+        class(reactiveObject) == "reactiveExpr") {
         return(reactiveObject())
     } else {
         return(reactiveObject)
     }
+}
+
+#' @title Flatten data to be written to file
+#' @description Flatten data from multiple providers to make it suitable to be written to file.
+#'
+#' @param data dataframe, tibble, data.table
+#'
+#' @export
+flatten_data <- function(data) {
+    data <- as.data.frame(data)
+    lists <- unlist(lapply(data, is.list))
+    for (list in which(lists)) {
+        data[, list] <- paste(unlist(data[, list]), collapse = ", ")
+    }
+    return(data)
 }
