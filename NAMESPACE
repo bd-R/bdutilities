@@ -2,4 +2,4 @@
 
 export(flatten_data)
 export(return_core)
-export(summarizeDataframe)
+export(summarize_dataframe)

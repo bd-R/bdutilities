@@ -4,7 +4,7 @@
 #' @param data biodiversity dataframe
 #'
 #' @export
-summarizeDataframe <- function(data) {
+summarize_dataframe <- function(data) {
     if (nrow(data) == 0) {
         return(data)
     }
@@ -21,28 +21,26 @@ summarizeDataframe <- function(data) {
             "longitute"
         )
     )
-    
-    cols <- c(cols, setdiff(1:length(data), cols))
-    
+    cols <- c(cols, setdiff(1:seq_len(data), cols))
     temp_data <- data[, cols]
     hiding_cols <- c()
     temp_data[] <- lapply(temp_data, as.character)
-    
-    for (i in 1:length(names(temp_data))) {
+
+    for (i in 1:seq_len(names(temp_data))) {
         size <- ifelse(nrow(temp_data) > 1000, 1000, nrow(temp_data))
         sample <-
             sample(1:nrow(temp_data), size = size)
         f <-
             mean(sapply(temp_data[sample, i], function(x)
                 nchar(x)), na.rm = T)
-        
+
         if (!is.nan(f)) {
             if (f > 50) {
                 hiding_cols <- c(hiding_cols, i)
             }
         }
     }
-    
+
     if (length(hiding_cols) > 0) {
         temp_data <- temp_data[, c(hiding_cols * -1)]
     }
@@ -52,15 +50,15 @@ summarizeDataframe <- function(data) {
 #' @title   create a core object from reactive function
 #' @description  get core object if its wrapped in shiny reactives.
 #'
-#' @param reactiveObject shiny reactive object or, object
+#' @param reactive_object shiny reactive object or, object
 #'
 #' @export
-return_core <- function(reactiveObject) {
-    if (class(reactiveObject) == "reactive" ||
-        class(reactiveObject) == "reactiveExpr") {
-        return(reactiveObject())
+return_core <- function(reactive_object) {
+    if (class(reactive_object) == "reactive" ||
+        class(reactive_object) == "reactiveExpr") {
+        return(reactive_object())
     } else {
-        return(reactiveObject)
+        return(reactive_object)
     }
 }
 
