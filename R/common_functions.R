@@ -50,12 +50,12 @@ summarize_dataframe <- function(data) {
 #' @title   create a core object from reactive function
 #' @description  get core object if its wrapped in shiny reactives.
 #'
-#' @param reactiveObject shiny reactive object or, object
+#' @param reactive_object shiny reactive object or, object
 #'
 #' @export
 return_core <- function(reactive_object) {
-    if (class(reactiveObject) == "reactive" ||
-        class(reactiveObject) == "reactiveExpr") {
+    if (class(reactive_object) == "reactive" ||
+        class(reactive_object) == "reactiveExpr") {
         return(reactive_object())
     } else {
         return(reactive_object)
