@@ -21,13 +21,11 @@ summarize_dataframe <- function(data) {
             "longitute"
         )
     )
-    
     cols <- c(cols, setdiff(1:length(data), cols))
-    
     temp_data <- data[, cols]
     hiding_cols <- c()
     temp_data[] <- lapply(temp_data, as.character)
-    
+
     for (i in 1:length(names(temp_data))) {
         size <- ifelse(nrow(temp_data) > 1000, 1000, nrow(temp_data))
         sample <-
@@ -35,14 +33,14 @@ summarize_dataframe <- function(data) {
         f <-
             mean(sapply(temp_data[sample, i], function(x)
                 nchar(x)), na.rm = T)
-        
+
         if (!is.nan(f)) {
             if (f > 50) {
                 hiding_cols <- c(hiding_cols, i)
             }
         }
     }
-    
+
     if (length(hiding_cols) > 0) {
         temp_data <- temp_data[, c(hiding_cols * -1)]
     }
@@ -55,7 +53,7 @@ summarize_dataframe <- function(data) {
 #' @param reactiveObject shiny reactive object or, object
 #'
 #' @export
-return_core <- function(reactiveObject) {
+return_core <- function(reactive_object) {
     if (class(reactiveObject) == "reactive" ||
         class(reactiveObject) == "reactiveExpr") {
         return(reactiveObject())
