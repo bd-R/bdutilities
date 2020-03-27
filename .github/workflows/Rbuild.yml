@@ -10,3 +10,4 @@ jobs:
       uses: Swechhya/R-actions@v1.1
       with:
         action: 'all'
+
