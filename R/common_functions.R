@@ -4,7 +4,7 @@
 #' @param data biodiversity dataframe
 #'
 #' @export
-summarize_dataframe <- function(data) {
+summarizeDataframe <- function(data) {
     if (nrow(data) == 0) {
         return(data)
     }
