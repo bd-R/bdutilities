@@ -21,12 +21,12 @@ summarize_dataframe <- function(data) {
             "longitute"
         )
     )
-    cols <- c(cols, setdiff(1:seq_len(data), cols))
+    cols <- c(cols, setdiff(1:length(data), cols))
     temp_data <- data[, cols]
     hiding_cols <- c()
     temp_data[] <- lapply(temp_data, as.character)
 
-    for (i in 1:seq_len(names(temp_data))) {
+    for (i in 1:length(names(temp_data))) {
         size <- ifelse(nrow(temp_data) > 1000, 1000, nrow(temp_data))
         sample <-
             sample(1:nrow(temp_data), size = size)
@@ -54,11 +54,11 @@ summarize_dataframe <- function(data) {
 #'
 #' @export
 return_core <- function(reactive_object) {
-    if (class(reactive_object) == "reactive" ||
-        class(reactive_object) == "reactiveExpr") {
-        return(reactive_object())
+    if (class(reactiveObject) == "reactive" ||
+        class(reactiveObject) == "reactiveExpr") {
+        return(reactiveObject())
     } else {
-        return(reactive_object)
+        return(rreactiveObject)
     }
 }
 
