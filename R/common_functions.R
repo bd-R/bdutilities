@@ -58,7 +58,7 @@ return_core <- function(eactiveObject) {
         class(reactiveObject) == "reactiveExpr") {
         return(reactiveObject())
     } else {
-        return(rreactiveObject)
+        return(reactiveObject)
     }
 }
 
