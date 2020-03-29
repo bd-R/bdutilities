@@ -53,7 +53,7 @@ summarizeDataframe <- function(data) {
 #' @param reactive_object shiny reactive object or, object
 #'
 #' @export
-return_core <- function(reactive_object) {
+return_core <- function(eactiveObject) {
     if (class(reactiveObject) == "reactive" ||
         class(reactiveObject) == "reactiveExpr") {
         return(reactiveObject())
