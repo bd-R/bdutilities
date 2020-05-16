@@ -63,18 +63,3 @@ return_core <- function(reactiveObject) {
         return(reactiveObject)
     }
 }
-
-#' @title Flatten data to be written to file
-#' @description Flatten data from multiple providers to make it suitable to be written to file.
-#'
-#' @param data dataframe, tibble, data.table
-#'
-#' @export
-flatten_data <- function(data) {
-    data <- as.data.frame(data)
-    lists <- unlist(lapply(data, is.list))
-    for (list in which(lists)) {
-        data[, list] <- paste(unlist(data[, list]), collapse = ", ")
-    }
-    return(data)
-}
