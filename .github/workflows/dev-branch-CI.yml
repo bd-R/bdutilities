@@ -7,6 +7,7 @@ on:
     branches: [ dev ]
   pull_request:
     branches: [ dev ]
+  repository_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,3 +24,18 @@ jobs:
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
+# below job is to check cross repo triggering
+#modify after use.
+  ping-pong:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event Information
+        run: |
+          echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
+      - name: PONG - Dispatch response to received PING
+        if: github.event.action == 'ping'
+        run: |
+          curl -X POST https://api.github.com/repos/marcnuri-demo/actions-remote-dispatch-a/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACCESS_TOKEN }} \
+          --data '{"event_type": "pong", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
