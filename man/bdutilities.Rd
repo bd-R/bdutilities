@@ -3,7 +3,6 @@
 \docType{package}
 \name{bdutilities}
 \alias{bdutilities}
-\alias{bdutilities-package}
 \title{bdutilities: Reusable supporting functions across the bdverse.}
 \description{
 Internal functions required in bdverse package system.
