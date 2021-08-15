@@ -133,7 +133,7 @@ jobs:
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
       - name: Install dependencies
         run: |
-            remotes::install_deps(dependencies = TRUE)
+          remotes::install_deps(dependencies = TRUE)
           # Your "dev" dependencies go here
           # End "dev" here
           remotes::install_cran("rcmdcheck")
