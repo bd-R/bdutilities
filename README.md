@@ -1,6 +1,4 @@
 # bdutilities
 Reusable supporting functions across the bdverse 
 
-  <!-- badges: start -->
-  [![R-CMD-check](https://github.com/bd-R/bdutilities/workflows/R-CMD-check/badge.svg)](https://github.com/bd-R/bdutilities/actions)
-  <!-- badges: end -->
+[![Dev-Dev](https://github.com/thiloshon/bdutilities/actions/workflows/Dev-Dev.yml/badge.svg?branch=dev)](https://github.com/thiloshon/bdutilities/actions/workflows/Dev-Dev.yml)
