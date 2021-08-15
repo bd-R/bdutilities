@@ -1,5 +1,5 @@
 context("Installed")
 
 test_that("bdutilities", {
-  expect_true("bdutilities" %in% installed.packages())
+  expect_equal(length(summarizeDataframe(airquality)), 6)
 })
