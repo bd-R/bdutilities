@@ -11,7 +11,7 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     # Here it will run after every 8 hours starting from 0th hour of the day
-    - cron: "0 0/8 * * *"
+    - cron: "0 0/12 * * *"
 
 name: Mac-Dev-Dev
 
