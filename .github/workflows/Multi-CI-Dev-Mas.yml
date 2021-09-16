@@ -1,3 +1,5 @@
+## tic GitHub Actions template: linux-macos-windows-deploy
+## revision date: 2020-08-06
 on:
   workflow_dispatch:
   push:
@@ -14,7 +16,7 @@ on:
     - cron: "0 0/8 * * *"
 
 
-name: Multi-CI-Dev-Dev
+name: Multi-CI-Dev-Mas
 
 jobs:
   all:
